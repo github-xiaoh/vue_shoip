@@ -29,6 +29,7 @@
         name: "Login",
         data(){
             return {
+                kkkk:"",
                 login_Form:{
                     username:"",
                     password:"",
@@ -58,15 +59,16 @@
 
             // 登录前的预验证
             login:function () {
-                this.$refs.loginFormRef.validate(async (vaild) => {
-                    console.log(vaild);
-                    if (!vaild){return}
+                this.$refs.loginFormRef.validate( async (valid) => {
+                    console.log(valid);
+                    if (!valid){return}
                     const result = await this.$http.post("login",this.login_Form)
                     console.log(result.data)
-                    if (result.data.meta.status != 200){
-                        return console.log("登录失败")
+                    if (result.data.meta.status !== 200){
+                        return this.$message.error('登录失败')
                     } else {
                         console.log("登录成功")
+                        this.$message.success("登录成功")
                     }
 
                     // 1、将登陆成功之后的token 保存到客户端的 sessionStirage 中
@@ -75,6 +77,8 @@
                     // console.log(result.data)
                     window.sessionStorage.setItem("token",result.data.data.token)
                     // 2、通过编程式导航跳转到后台主页，路由地址是 /home
+                    this.kkkk = window.sessionStorage.getItem('token')
+                    console.log('kkk: ',this.kkkk)
                     this.$router.push('/home')
 
                 })
@@ -84,7 +88,7 @@
     }
 </script>
 
-<style Lang="scss" scoped>
+<style Lang="less" scoped>
     .login_container{
         background-color: #C0C4CC;
         height: 100%;
