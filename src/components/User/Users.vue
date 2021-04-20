@@ -247,7 +247,11 @@
                 if (res.meta.status !== 200) {
                     return this.$message.error('更新用户失败')
                 }
-                this.$message.success('更新状态成功')
+                if (res.data.mg_state) {
+                    this.$message.success('状态开启成功')
+                }else {
+                    this.$message.success('状态禁用成功')
+                }
             },
 
             // 监听添加用户对话框的关闭事件

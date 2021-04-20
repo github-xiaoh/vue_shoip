@@ -4,6 +4,8 @@ import Login from '../components/Login'
 import Home from '../components/Home'
 import Welcome from '../components/Welcome'
 import Users from "../components/User/Users";
+import Report from "../components/report/Report";
+
 
 Vue.use(VueRouter);
 
@@ -33,6 +35,11 @@ const routes = [
         // 用户页
         path:'/users',
         component:Users,
+      },
+      {
+        // 报表
+        path:'/reports',
+        component:Report,
       },
     ]
   },
