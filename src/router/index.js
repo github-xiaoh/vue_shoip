@@ -17,11 +17,6 @@ const routes = [
     component: Login,
   },
   {
-    // 重定向
-    path:'/',
-    redirect:'/login'
-  },
-  {
     // 主页
     path:'/home',
     component: Home,
@@ -42,6 +37,11 @@ const routes = [
         component:Report,
       },
     ]
+  },
+  {
+    // 重定向
+    path:'/',
+    redirect:'/login'
   },
   {
     // 退出登录

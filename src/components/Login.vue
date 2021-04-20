@@ -29,7 +29,6 @@
         name: "Login",
         data(){
             return {
-                kkkk:"",
                 login_Form:{
                     username:"",
                     password:"",
@@ -71,14 +70,12 @@
                         this.$message.success("登录成功")
                     }
 
-                    // 1、将登陆成功之后的token 保存到客户端的 sessionStirage 中
+                    // 1、将登陆成功之后的token 保存到客户端的 sessionStorage 中
                     //     1、1 项目中除了登录之外的其他API接口，必须在登录之后才能访问
                     //     1、2 token 只应用在当前网站打开期间生效，所以将 token 保存在 sessionStorage 中
                     // console.log(result.data)
                     window.sessionStorage.setItem("token",result.data.data.token)
                     // 2、通过编程式导航跳转到后台主页，路由地址是 /home
-                    this.kkkk = window.sessionStorage.getItem('token')
-                    console.log('kkk: ',this.kkkk)
                     this.$router.push('/home')
 
                 })
