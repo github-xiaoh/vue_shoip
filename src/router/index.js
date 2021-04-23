@@ -5,6 +5,8 @@ import Home from '../components/Home'
 import Welcome from '../components/Welcome'
 import Users from "../components/User/Users";
 import Report from "../components/report/Report";
+import Rights from "../components/power/Rights";
+import Roles from "../components/power/Roles";
 
 
 Vue.use(VueRouter);
@@ -22,20 +24,16 @@ const routes = [
     component: Home,
     redirect:'/welcome',
     children:[
-      {
-        path:'/welcome',
-        component:Welcome,
-      },
-      {
-        // 用户页
-        path:'/users',
-        component:Users,
-      },
-      {
-        // 报表
-        path:'/reports',
-        component:Report,
-      },
+      // 欢迎首页面
+      { path:'/welcome', component:Welcome, },
+      // 用户页
+      { path:'/users',component:Users, },
+      // 报表
+      { path:'/reports', component:Report, },
+      // 权限管理
+      { path:'/rights',  component: Rights, },
+      // 角色管理
+      { path: '/roles', component: Roles, },
     ]
   },
   {

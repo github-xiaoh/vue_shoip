@@ -7,7 +7,7 @@
                 <img src="../assets/shop_ico.png">
                 <span class="header-span1">移动电影院</span>
             </div>
-            <el-button type="primary" @click="logout">退出登录</el-button>
+            <el-button type="success" @click="logout" style="margin-right: 20px" size="small" plain>退出登录</el-button>
         </el-header>
 
         <!--页面主体区域-->
@@ -157,7 +157,6 @@
         padding: 0;
         align-items: center;
         font-size: 20px;
-
     }
     .header-div1 {
         display: flex;
