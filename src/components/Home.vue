@@ -4,7 +4,7 @@
         <!--头部区域-->
         <el-header>
             <div class="header-div1">
-                <img src="../assets/shop_ico.png">
+                <img src="../assets/response.png">
                 <span class="header-span1">移动电影院</span>
             </div>
             <el-button type="success" @click="logout" style="margin-right: 20px" size="small" plain>退出登录</el-button>
@@ -194,5 +194,10 @@
         text-align: center;
         letter-spacing: 0.2em;  /*文本的间距*/
         cursor: pointer;    /* 鼠标选中后变成小手形状*/
+    }
+    img {
+        margin-left: 5px;
+        width: 56px;
+        height: 56px;
     }
 </style>

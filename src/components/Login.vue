@@ -2,7 +2,7 @@
     <div class="login_container">
         <div class="login_box">
             <div class="avatar_box">
-                <img src="../assets/logo.png">
+                <img src="../assets/response.png">
             </div>
             <!--登录表单区域-->
             <el-form ref="loginFormRef" :rules="loginFormRule" class="login_form" :model="login_Form" label-width="80px">
