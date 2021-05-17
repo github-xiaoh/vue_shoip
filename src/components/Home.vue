@@ -4,10 +4,10 @@
         <!--头部区域-->
         <el-header>
             <div class="header-div1">
-                <img src="../assets/shop_ico.png">
+                <img src="../assets/response.png">
                 <span class="header-span1">移动电影院</span>
             </div>
-            <el-button type="primary" @click="logout">退出登录</el-button>
+            <el-button type="primary" @click="logout" style="margin-right: 20px" size="small" plain>退出登录</el-button>
         </el-header>
 
         <!--页面主体区域-->
@@ -15,8 +15,8 @@
             <!--页面侧边栏-->
             <el-aside :width="asideSize">
                 <div class="toggle-button" @click="toggleCollapse">|||</div>
-                <el-menu text-color="hotpink" active-text-color="red" unique-opened :collapse="iscollapse" :collapse-transition="false"
-                         :router="true" :default-active="activePath" background-color="darkslategray">
+                <el-menu text-color="#DEE2E6" active-text-color="#409EFF" unique-opened :collapse="iscollapse" :collapse-transition="false"
+                         :router="true" :default-active="activePath" background-color="#111">
                   <!--一级菜单-->
                   <el-submenu :index="item.id + '' " v-for="item in menulist" :key="item.id">
                     <!--一级菜单模版区域-->
@@ -95,11 +95,12 @@
                 // 左侧菜单数据
                 menulist:[],
                 icoObj:{
-                    '125':'el-icon-user-solid',
-                    '103':'el-icon-star-on',
-                    '101':'el-icon-s-goods',
-                    '102':'el-icon-s-help',
-                    '145':'el-icon-upload',
+                    '100':'el-icon-user-solid',
+                    '300':'el-icon-star-on',
+                    '400':'el-icon-s-goods',
+                    '500':'el-icon-s-help',
+                    '600':'el-icon-upload',
+                    '200':'el-icon-position',
 
                 },
                 // 是否折叠，false表示默认不折叠 asideSize 表示左侧栏默认宽度 200px
@@ -123,7 +124,7 @@
             },
             // 获取所有的左侧菜单
             async getMenuList() {
-                const {data:res} = await this.$http.get('menus');
+                const {data:res} = await this.$http.get('user_ch/test_menus/');
                 if (res.meta.status !== 200) {return this.$message.error(res.meta.msg)}
                 this.menulist = res.data
                 console.log(res)
@@ -151,7 +152,7 @@
 <style Lang="less" scoped>
 
     .el-header {
-        background-color: coral;
+        background-color: #111;
         display: flex;
         justify-content: space-between  ;
         padding: 0;
@@ -164,17 +165,18 @@
         align-items: center;
     }
     .header-span1 {
-            margin-left: 13px;
-        }
+        margin-left: 13px;
+        color: #fff;
+    }
     .el-aside {
-        background-color: cadetblue;
+        background-color: #111;
     }
     .el-menu {
         border-right: none;
 
     }
     .el-main {
-        background-color: cornsilk;
+        background-color: #f0f2f5;
     }
 
     /*整体页面高度，填充屏幕*/
@@ -195,5 +197,10 @@
         text-align: center;
         letter-spacing: 0.2em;  /*文本的间距*/
         cursor: pointer;    /* 鼠标选中后变成小手形状*/
+    }
+    img {
+        margin-left: 5px;
+        width: 50px;
+        height: 50px;
     }
 </style>

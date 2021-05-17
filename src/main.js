@@ -10,7 +10,7 @@ import './css/globalcss.css'
 // 导入axios网络请求包
 import axios from 'axios'
 // 配置请求的根路径
-axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/';
+axios.defaults.baseURL = 'http://127.0.0.1:8001/';
 axios.interceptors.request.use( config => {
   console.log(config)
   config.headers.Authorization = window.sessionStorage.getItem('token')

@@ -15,7 +15,7 @@
         <el-row :gutter="30">
 
           <el-col :span="9">
-            <el-input placeholder="请输入内容" v-model="queryInfo.query" :clearable="true" @clear="getUserList">
+            <el-input placeholder="请输入用户昵称" v-model="queryInfo.query" :clearable="true" @clear="getUserList">
             <template #append>
               <el-button icon="el-icon-search" @click="getUserList" ></el-button>
             </template>
@@ -29,11 +29,16 @@
         <!--用户列表区域-->
         <el-table :data="userList" border stripe >
           <el-table-column label="#" type="index"></el-table-column>
-          <el-table-column label="日期" prop="username" ></el-table-column>
-          <el-table-column label="邮箱" prop="email" ></el-table-column>
-          <el-table-column label="电话" prop="mobile" ></el-table-column>
-          <el-table-column label="角色" prop="role_name" ></el-table-column>
-          <el-table-column label="状态" prop="mg_state" >
+          <el-table-column label="用户ID" prop="id" ></el-table-column>
+          <el-table-column label="姓名" prop="u_nickname" ></el-table-column>
+          <el-table-column label="更新时间" prop="u_update_time" ></el-table-column>
+          <el-table-column label="电话" prop="u_mobile" ></el-table-column>
+          <el-table-column label="头像" prop="" >
+            <template slot-scope="scope">
+              <el-image style="width: 20px; height: 20px; border-radius: 50%;" :src="scope.row.u_image" fit="fill" :preview-src-list="[scope.row.u_image]"></el-image>
+            </template>
+          </el-table-column>
+          <el-table-column label="状态" prop="u_status" >
             <!--作用域插槽使用获取userList数据 {{scope.row}} 使用作用域插槽后可以去掉prop属性，因为作用域插槽优先级要高 -->
             <template slot-scope="scope" >
               <el-switch v-model="scope.row.mg_state" @change="userStateChanged(scope.row)"></el-switch>
@@ -148,7 +153,7 @@
                     // 当前的页面在第几页
                     pagenum: 1,
                     // 当前页面显示多少条数据
-                    pagesize: 5,
+                    pagesize: 10,
                 },
                 userList: [],
                 total: 0,
@@ -217,11 +222,11 @@
 
         methods:{
             async getUserList() {
-                const {data:res} = await this.$http.get('users',{params: this.queryInfo})
-                if (res.meta.status !== 200) {
+                const {data:res} = await this.$http.get('user_ch/users',{params: this.queryInfo})
+                if (res.code !== 200) {
                     return this.$message.error("获取用户列表失败")
                 }
-                this.userList = res.data.users;
+                this.userList = res.data.userList;
                 this.total = res.data.total;
                 console.log(res)
             },
