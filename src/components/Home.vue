@@ -24,7 +24,7 @@
                       <!--图标-->
                       <i :class="icoObj[item.id]"></i>
                       <!--文本-->
-                      <span>{{item.authName}}</span>
+                      {{item.authName}}
                     </template>
                     <!--二级菜单-->
                     <el-menu-item :index="'/' + subItem.path + '' " v-for="subItem in item.children"

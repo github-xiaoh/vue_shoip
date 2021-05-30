@@ -42,7 +42,7 @@ const routes = [
   {
     // 重定向
     path:'/',
-    redirect:'/login'
+    redirect:'/home'
   },
   {
     // 退出登录
@@ -69,6 +69,7 @@ router.beforeEach((to,from,next)=>{
   if(to.path === '/login'){return next()};
   // 获取token
   const tokenStr = window.sessionStorage.getItem('token')
+  console.log('token::' + tokenStr)
   if(!tokenStr){return next('/login')}
   next();
 
