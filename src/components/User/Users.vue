@@ -16,10 +16,10 @@
 
           <el-col :span="9">
             <el-input placeholder="请输入用户昵称" v-model="queryInfo.query" :clearable="true" @clear="getUserList">
-            <template #append>
-              <el-button icon="el-icon-search" @click="getUserList" ></el-button>
-            </template>
-          </el-input>
+              <template #append>
+                <el-button icon="el-icon-search" @click="getUserList" ></el-button>
+              </template>
+            </el-input>
           </el-col>
           <el-col :span="4">
             <el-button type="primary" @click="addDialogVisible = true">添加用户</el-button>
@@ -27,7 +27,7 @@
         </el-row>
 
         <!--用户列表区域-->
-        <el-table :data="userList" border stripe >
+        <el-table :data="userList" border stripe>
           <el-table-column label="#" type="index"></el-table-column>
           <el-table-column label="用户ID" prop="id" ></el-table-column>
           <el-table-column label="姓名" prop="u_nickname" ></el-table-column>
@@ -45,7 +45,7 @@
             </template>
           </el-table-column>
           <el-table-column label="操作" prop="" >
-            <template slot-scope="scope">
+            <template #default="scope">
               <el-tooltip class="item" effect="dark" content="编辑" placement="top" :enterable="false">
               <el-button type="primary" icon="el-icon-edit" circle size="mini" @click="showEditDialog(scope.row.id)"></el-button>
               </el-tooltip>
@@ -233,14 +233,15 @@
 
             // 分页数量 切换触发
             handleSizeChange:function (newSize) {
-                console.log(newSize)
+                console.log('分页数量:',newSize)
                 this.queryInfo.pagesize = newSize
+                this.queryInfo.pagenum = 1
                 this.getUserList()
             },
 
             // 分页码值 改变触发
             handleCurrentChange:function (newPage) {
-                console.log(newPage)
+                console.log('分页码值:',newPage)
                 this.queryInfo.pagenum = newPage
                 this.getUserList()
             },
@@ -387,6 +388,6 @@
     }
 </script>
 
-<style lang="less" scoped>
+<style Lang="less" scoped>
 
 </style>

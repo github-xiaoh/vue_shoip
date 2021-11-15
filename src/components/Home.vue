@@ -193,7 +193,7 @@
         background-color: #2D3032;
         font-size: 15px;
         line-height: 24px;
-        color: magenta;
+        color: seashell;
         text-align: center;
         letter-spacing: 0.2em;  /*文本的间距*/
         cursor: pointer;    /* 鼠标选中后变成小手形状*/

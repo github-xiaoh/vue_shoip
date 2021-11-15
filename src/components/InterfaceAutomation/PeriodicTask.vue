@@ -18,7 +18,21 @@
 
 <script>
     export default {
-        name: "PeriodicTask"
+        name: "PeriodicTask",
+        data() {
+            return{
+
+            }
+        },
+        created(){
+            // this.getTask1();
+        },
+        methods:{
+            getTask1:async function () {
+                const {data:res} = await this.$http.get('auto_api/gettask1')
+                const {data:res2} = await this.$http.get('auto_api/gettask2')
+            }
+        },
     }
 </script>
 

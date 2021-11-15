@@ -6,7 +6,7 @@ import Welcome from '../components/Welcome'
 import Users from "../components/User/Users";
 import Premiere from "../components/TestTools/Premiere";
 import Special from "../components/TestTools/Special";
-import Recharge from "../components/TestTools/Recharge";
+import Tools from "../components/TestTools/Tools";
 import ReportTemplate from "../components/reports/ReportTemplate";
 import ProjectList from "../components/InterfaceAutomation/ProjectList";
 import ModuleList from "../components/InterfaceAutomation/ModuleList";
@@ -15,6 +15,8 @@ import ConfigList from "../components/InterfaceAutomation/ConfigList";
 import SuiteList from "../components/InterfaceAutomation/SuiteList";
 import ReportList from "../components/InterfaceAutomation/ReportList";
 import PeriodicTask from "../components/InterfaceAutomation/PeriodicTask";
+import Operation from "../components/TestTools/Operation";
+import Createfilm from "../components/TestTools/Createfilm";
 
 Vue.use(VueRouter);
 
@@ -23,7 +25,8 @@ const routes = [
   {
     // 登录
     path:'/login',
-    component: Login,
+    // component: Login,
+    redirect:'/home'
   },
   {
     // 重定向
@@ -79,14 +82,23 @@ const routes = [
         component:Premiere,
       },
       {
+        // 添加影片呢
+        path:'/createfilm',
+        component:Createfilm,
+      },
+      {
         // 专场
         path:'/special',
         component:Special,
       },
       {
         // 充值影点
-        path:'/recharge',
-        component:Recharge,
+        path:'/tools',
+        component:Tools,
+      },{
+        // 运营活动创建
+        path:'/operation',
+        component:Operation,
       },{
         // 报告模版
         path:'/reporttemplate',
