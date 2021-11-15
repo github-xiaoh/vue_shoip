@@ -45,7 +45,7 @@ import './css/globalcss.css'
 // 导入axios网络请求包
 import axios from 'axios'
 // 配置请求的根路径
-axios.defaults.baseURL = 'http://0.0.0.0:8001/';
+axios.defaults.baseURL = 'http://10.1.111.118:8001/';
 
 // axiox请求拦截
 axios.interceptors.request.use( config => {
